@@ -6,23 +6,23 @@
           <img :src="logo" alt="error" />
         </div>
         <div class="hearder-content-center">
-          <div class="hearder-content-center-top"> welcome TD</div>
+          <div class="hearder-content-center-top"> Welcome my answer sheet</div>
           <div class="hearder-content-center-bottom">
             <div class="hearder-content-center-bottom-item" :class="isActive('answerOne')"
               @click="routerWrite('/answerOne')">
-              第一题
+              第一
             </div>
             <div class="hearder-content-center-bottom-item" :class="isActive('answerTwo')"
               @click="routerWrite('/answerTwo')">
-              第二题
+              第二
             </div>
             <div class="hearder-content-center-bottom-item" :class="isActive('answerThree')"
               @click="routerWrite('/answerThree')">
-              第三题
+              第三
             </div>
             <div class="hearder-content-center-bottom-item" :class="isActive('answerFour')"
               @click="routerWrite('/answerFour')">
-              第四题
+              第四
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ const routerWrite = (path: string) => {
 .layout {
   .hearder {
     width: 100%;
-    height: 102px;
+    height: 94px;
     position: fixed !important;
     top: 0;
     left: 0;
@@ -105,7 +105,7 @@ const routerWrite = (path: string) => {
           font-family: Microsoft YaHei;
           font-weight: bold;
           color: #1a1a3e;
-          margin-top: 18px;
+          margin-top: 10px;
         }
 
         .hearder-content-center-bottom {
@@ -128,7 +128,7 @@ const routerWrite = (path: string) => {
           }
 
           .titleitemactive {
-            border-bottom: 2px solid #5f5fff;
+            border-bottom: 2px solid #000000;
           }
         }
       }
@@ -136,9 +136,9 @@ const routerWrite = (path: string) => {
   }
 
   .content {
-    margin-top: 102px;
+    margin-top: 94px;
     width: 100%;
-    padding: 20px;
+    padding: 30px 50px;
     position: absolute;
   }
 }
