@@ -1,0 +1,67 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: test-front
+  namespace: licos
+  labels:
+    app: test-front
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-front
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: test-front
+    spec:
+      volumes:
+        - name: vol-165553743907428603
+          hostPath:
+            path: /etc/localtime
+            type: ''
+        - name: vol-165553745297144883
+          configMap:
+            name: common-nginx-config
+            defaultMode: 420
+      containers:
+        - name: test-front
+          image: $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:$VERSION-$BUILD_NUMBER
+          env:
+            - name: PAAS_APP_NAME
+              value: test-front
+            - name: PAAS_NAMESPACE
+              value: licos
+            - name: PAAS_PROJECT_ID
+              value: a0d6d07f2a15458eb4206c739971fdec
+          resources:
+            limits:
+              cpu: 100m
+              memory: 250Mi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+          volumeMounts:
+            - name: vol-165553743907428603
+              mountPath: /etc/localtime
+            - name: vol-165553745297144883
+              readOnly: true
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          imagePullPolicy: IfNotPresent
