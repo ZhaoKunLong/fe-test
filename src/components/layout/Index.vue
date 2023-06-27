@@ -6,23 +6,23 @@
           <img :src="logo" alt="error" />
         </div>
         <div class="hearder-content-center">
-          <div class="hearder-content-center-top"> Welcome my answer sheet</div>
+          <div class="hearder-content-center-top"> Welcome to check my answer sheet</div>
           <div class="hearder-content-center-bottom">
             <div class="hearder-content-center-bottom-item" :class="isActive('answerOne')"
               @click="routerWrite('/answerOne')">
-              第一
+              第一题
             </div>
             <div class="hearder-content-center-bottom-item" :class="isActive('answerTwo')"
               @click="routerWrite('/answerTwo')">
-              第二
+              第二题
             </div>
             <div class="hearder-content-center-bottom-item" :class="isActive('answerThree')"
               @click="routerWrite('/answerThree')">
-              第三
+              第三题
             </div>
             <div class="hearder-content-center-bottom-item" :class="isActive('answerFour')"
               @click="routerWrite('/answerFour')">
-              第四
+              第四题
             </div>
           </div>
         </div>
@@ -45,12 +45,12 @@ import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 const router = useRouter();
-const activeItem = reactive<any>({ key: '' });
 
-// 菜单命中样式判断
+const activeItem = reactive<any>({ key: '' });
 activeItem.key = computed(() => {
   return route.path.split('/')[1];
 });
+// 菜单命中样式判断
 const isActive = (routeKey: string) => {
   if (activeItem.key == routeKey) return 'titleitemactive';
   else return '';
@@ -79,7 +79,7 @@ const routerWrite = (path: string) => {
       display: flex;
       // justify-content: space-around;
       align-items: center;
-      gap: 20px;
+      // gap: 20px;
 
       .hearder-content-left {
         flex-shrink: 0;

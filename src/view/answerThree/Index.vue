@@ -35,12 +35,12 @@ const imgList = [
   },
 ]
 // 当前页样式
-const currentStyle = (index) => {
+const currentStyle = (index: number) => {
   if (index == currentImg.value) return 'current-style'
   else return ''
 }
 // 点击分页轮播
-const paging = (index) => {
+const paging = (index: number) => {
   currentImg.value = index
 }
 // 定时器
