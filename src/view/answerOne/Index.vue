@@ -30,17 +30,6 @@ const addtableLine = () => {
   margin-bottom: 20px;
 
   .button {
-    line-height: 1.5715;
-    position: relative;
-    display: inline-block;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    background-image: none;
-    border: 1px solid transparent;
-    box-shadow: 0 2px #00000004;
-    cursor: pointer;
-    transition: all .3s cubic-bezier(.645, .045, .355, 1);
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -56,22 +45,14 @@ const addtableLine = () => {
 
   .input {
     margin: 0;
-    font-variant: tabular-nums;
-    list-style: none;
-    font-feature-settings: tnum;
-    position: relative;
-    display: inline-block;
     width: 200px;
-    min-width: 0;
+    height: 32px;
     padding: 4px 11px;
     color: #000000d9;
     font-size: 14px;
-    line-height: 1.5715;
     background-color: #fff;
-    background-image: none;
     border: 1px solid #d9d9d9;
     border-radius: 2px;
-    transition: all .3s;
     margin-right: 20px;
   }
 }

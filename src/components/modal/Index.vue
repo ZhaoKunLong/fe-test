@@ -1,6 +1,6 @@
 <template>
   <teleport to="body">
-    <div class="modal-overlay" @click="showModal" v-if="show">
+    <div class="modal-overlay" @click="closeModal" v-if="show">
       <div class="modal">
         <div class="modal-header">
           <slot name="title">{{ title }}</slot>
@@ -33,13 +33,12 @@ const props = defineProps({
     default: 'content'
   },
 })
+// 通知父组件修改值，父组件支持用v-model:show绑定
 const emits = defineEmits(['update:show']);
-
-const showModal = () => {
+// 关闭弹窗
+const closeModal = () => {
   emits('update:show', !props.show)
 }
-
-
 
 </script>
 

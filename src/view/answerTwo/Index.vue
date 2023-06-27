@@ -1,7 +1,7 @@
 <template>
   <Page>
     <div class="top">
-      <input class="input" type="text" @input="handleChange" v-model="text" placeholder="请输入内容进行筛选">
+      <input class="input" type="text" @input="handleInput" v-model="text" placeholder="请输入内容进行筛选">
     </div>
     <div class="content">
       <Table :list="tableList"></Table>
@@ -14,28 +14,29 @@ import Page from '@/components/page/Index.vue'
 import Table from '@/components/table/Index.vue'
 import Line from '@/type/table.ts'
 import { ref } from 'vue'
-
+// 输入框的值
 const text = ref<string>('')
+// 表格绑定数组
 const tableList = ref<Array<Line>>([
   { value: '欢迎' },
   { value: '检查' },
   { value: '别忘了' },
   { value: '点赞哦' },
 ])
-
+// 原始数组
 const _tableList = [
   { value: '欢迎' },
   { value: '检查' },
   { value: '别忘了' },
   { value: '点赞哦' },
 ]
-
-const handleChange = () => {
+// 输入事件
+const handleInput = () => {
   if (!text.value) {
     tableList.value = _tableList
     return
   }
-  tableList.value = tableList.value.filter(item => item.value.search(text.value) != -1)
+  tableList.value = _tableList.filter(item => item.value.search(text.value.trim()) != -1)
 }
 </script>
 
@@ -46,23 +47,15 @@ const handleChange = () => {
 
   .input {
     margin: 0;
-    font-variant: tabular-nums;
-    list-style: none;
-    font-feature-settings: tnum;
-    position: relative;
-    display: inline-block;
     width: 200px;
-    min-width: 0;
     padding: 4px 11px;
     color: #000000d9;
     font-size: 14px;
-    line-height: 1.5715;
     background-color: #fff;
-    background-image: none;
     border: 1px solid #d9d9d9;
     border-radius: 2px;
-    transition: all .3s;
     margin-right: 20px;
+    height: 32px;
   }
 }
 </style>

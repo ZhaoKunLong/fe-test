@@ -47,7 +47,6 @@ const paging = (index: number) => {
 const interval = setInterval(() => {
   if (currentImg.value >= 3) return currentImg.value = 0
   currentImg.value++
-  console.log('4564')
 }, 1500)
 // 清除定时器，避免内存泄露
 onUnmounted(() => clearInterval(interval))
