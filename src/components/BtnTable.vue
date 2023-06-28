@@ -29,18 +29,12 @@ const computedList = computed(() => {
     return item.name.includes(ipt.value)
   })
 })
-
-function hanldeFilterFn() {
-}
 </script>
 
 <template>
   <div>
     <div>
       <input v-model="ipt" type="text" class="mr-5px border border-dark-50 px-3 py-5px outline-dark-300">
-      <button class="transition-all btn active:scale-96" @click="hanldeFilterFn">
-        筛选
-      </button>
       <table>
         <thead class="border-b border-#e5e5e5">
           <th v-for="item, i in labels" :key="i" class="min-w-20">

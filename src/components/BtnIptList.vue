@@ -20,7 +20,7 @@ function resetIpt() {
 <template>
   <div>
     <input v-model="ipt" type="text" class="mr-5px border border-dark-50 px-3 py-5px outline-dark-300">
-    <button class="transition-all btn active:scale-96" @click="handleAdd">
+    <button class="btn" @click="handleAdd">
       添加
     </button>
   </div>
