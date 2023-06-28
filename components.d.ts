@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BtnIptList: typeof import('./src/components/BtnIptList.vue')['default']
+    BtnTable: typeof import('./src/components/BtnTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
