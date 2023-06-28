@@ -25,4 +25,4 @@
   3. 完成上述要求，并提交。
   4. 创建PR到本repo的develop分支，
   5. 如有任何问题欢迎Issue 提问
-  6. 
+ 6. 编程实践题部分，使用该repo [fe-test](https://github.com/ZhaoKunLong/fe-test) 进行
