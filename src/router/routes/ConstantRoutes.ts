@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { routeName, routePath } from '../constant';
-import { TheLogin, NotFound, NotPermission, TheLayout } from '@/views';
+import { TheLogin, NotFound, NotPermission, TheLayout, FnTest } from '@/views';
 
 /** 固定路由 */
 const constantRoutes: RouteRecordRaw[] = [
@@ -19,7 +19,7 @@ const constantRoutes: RouteRecordRaw[] = [
       {
         name: routeName('work-test'),
         path: routePath('work-test'),
-        component: NotFound,
+        component: FnTest,
         meta: {},
       },
       {
