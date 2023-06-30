@@ -26,7 +26,7 @@
     "lodash": "^4.17.21",
     "naive-ui": "^2.34.3",
     "pinia": "^2.0.30",
-    "vue": "^3.2.47",
+    "vue": "^3.3.4",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

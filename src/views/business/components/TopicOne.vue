@@ -1,26 +1,29 @@
 <template lang="pug">
 div 
   span.input.input--hs(:class="inputValue?'input--filled':''")
-    input#input-1.input__field.input__field--hs(type="text" v-on:input="setValue")
+    input#input-1.input__field.input__field--hs(type="text" :value="inputValue" v-on:input="setValue")
     label.input__label.input__label--hs(for="input-1")
       span.input__label-content.input__label-content--hs 请输入
   div
-    button.button_(@click="setItem") 添加 
+    TheButton(@clickButton="setItem") 添加 
   div(style="margin-top: 15px;") 
     ul.ul_list(v-for="it in list")
       li.ul_li {{it}}
 </template>
 <script lang="ts" setup>
+import TheButton from './TheButton.vue';
 import { ref } from 'vue';
 const list = ref<string[]>([])
 let inputValue = ref<string>("")
 
 const setValue = () => {
-  inputValue.value = document.querySelector('#input-1')?.value
+  inputValue.value = (document.querySelector('#input-1') as HTMLInputElement).value
   console.log(inputValue);
 }
 const setItem = () => {
-  const element = document.querySelector('#input-1')
+  console.log(1);
+
+  const element = (document.querySelector('#input-1') as HTMLInputElement)!
   const item = element?.value || ""
   list.value.push(item)
   inputValue.value = ""
@@ -143,46 +146,6 @@ const setItem = () => {
   transform: translate3d(0, 0.5em, 0);
 }
 
-
-/** 按钮 */
-
-.button_ {
-  position: relative;
-  background-color: #2a8b85;
-  border-radius: 10px;
-  border: none;
-  font-size: 20px;
-  color: #FFFFFF;
-  padding: 10px;
-  width: 200px;
-  text-align: center;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.button_:after {
-  content: "";
-  background: #75f0bf;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
-}
-
-.button_:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
 
 /** 简单列表 */
 
