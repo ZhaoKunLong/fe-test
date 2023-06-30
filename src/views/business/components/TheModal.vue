@@ -1,6 +1,6 @@
 <template lang="pug">
-div.modal-backdrop(v-if="modelValue")
-  div.modal
+div.modal-backdrop(v-if="modelValue" @click="close")
+  div(@click.stop).modal
     div.modal-header
       slot(name="header") 我是头咯
     div.modal-body 
@@ -13,8 +13,12 @@ const props = defineProps({
   modelValue: Boolean
 })
 const emit = defineEmits<{
-  update: [modelValue: boolean]
+  'update:modelValue': [modelValue: boolean]
 }>()
+const close = (e: Event) => {
+  e.preventDefault();
+  emit('update:modelValue', false)
+}
 </script>
 
 <style lang="scss">
