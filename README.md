@@ -18,7 +18,7 @@
 - 请实现一个Vue组件，包含一个按钮和一个modal弹框， 点击按钮出现modal框，点击其他部分modal框消失。
   - 在该组件基础上，使期支持自定义modal框内容，头部和底部。 
   
-- 将上述组件组织在一个project内
+- 将上述组件组织在一个project内 
 ## 使用
   1. fork 本 repo.
   2. 使用应聘名称作为branch eg . feature/xxxxxx
